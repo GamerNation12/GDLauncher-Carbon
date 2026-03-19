@@ -19,15 +19,14 @@ pub fn get_client(gdl_base_api: String) -> reqwest_middleware::ClientBuilder {
             _extensions: &mut axum::http::Extensions,
             next: Next<'_>,
         ) -> reqwest_middleware::Result<Response> {
-            let curseforge_api_base = url::Url::parse(env!(
-                "CURSEFORGE_API_BASE",
-                "missing curseforge env api base"
-            ))
+            let curseforge_api_base = url::Url::parse(
+                option_env!("CURSEFORGE_API_BASE").unwrap_or("https://api.curseforge.com")
+            )
             .expect("Failed to parse CURSEFORGE_API_BASE environment variable");
 
             if req.url().host_str() == curseforge_api_base.host_str() {
                 let api_key = option_env!("CURSEFORGE_API_KEY")
-                    .expect("CURSEFORGE_API_KEY environment variable not set. Please set it to use CurseForge features.");
+                    .unwrap_or("dummy_key");
 
                 let api_key_header = api_key
                     .parse()
@@ -77,8 +76,8 @@ pub fn get_client(gdl_base_api: String) -> reqwest_middleware::ClientBuilder {
     let client = reqwest::Client::builder()
         .user_agent(format!(
             "{} {}",
-            env!("USER_AGENT_PREFIX"),
-            env!("APP_VERSION")
+            option_env!("USER_AGENT_PREFIX").unwrap_or("CarbonApp"),
+            option_env!("APP_VERSION").unwrap_or("1.0.0")
         ))
         .build()
         .expect("Failed to build HTTP client");

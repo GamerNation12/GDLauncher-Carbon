@@ -174,7 +174,7 @@ impl EnrollmentTask {
                         .map_err(|e| anyhow!("Failed to parse OAuth URL: {}", e))?;
                 auth_url
                     .query_pairs_mut()
-                    .append_pair("client_id", env!("MS_AUTH_CLIENT_ID"))
+                    .append_pair("client_id", option_env!("MS_AUTH_CLIENT_ID").unwrap_or("00000000-0000-0000-0000-000000000000"))
                     .append_pair("response_type", "code")
                     .append_pair("redirect_uri", &redirect_uri)
                     .append_pair(
@@ -222,7 +222,7 @@ impl EnrollmentTask {
                 let token_response = client
                     .post("https://login.microsoftonline.com/consumers/oauth2/v2.0/token")
                     .form(&[
-                        ("client_id", env!("MS_AUTH_CLIENT_ID")),
+                        ("client_id", option_env!("MS_AUTH_CLIENT_ID").unwrap_or("00000000-0000-0000-0000-000000000000")),
                         (
                             "scope",
                             "XboxLive.signin XboxLive.offline_access profile openid email",

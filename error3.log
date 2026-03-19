@@ -1,0 +1,53 @@
+﻿cargo :    Compiling carbon_app v0.0.0 (C:\Users\mi
+nec\Documents\GitHub\GDLauncher-Carbon\crates\carbo
+n_app)
+At line:1 char:1
++ cargo check -p carbon_app --features production 
+2>&1 | Out-File -File ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo          : NotSpecified: (   Co 
+   mpiling ca...tes\carbon_app):String) [], Remot  
+  eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: unused variable: `err`
+   --> crates\carbon_rt_path\src\lib.rs:319:20
+    |
+319 |         if let Err(err) = &res {
+    |                    ^^^ help: if this is 
+intentional, prefix it with an underscore: `_err`
+    |
+    = note: `#[warn(unused_variables)]` on by 
+default
+
+warning: `carbon_rt_path` (lib) generated 1 warning
+    Checking carbon_repos v0.1.0 (C:\Users\minec\Do
+cuments\GitHub\GDLauncher-Carbon\crates\carbon_repo
+s)
+warning: function `deserialise_optional_url` is 
+never used
+  --> 
+crates\carbon_platforms\src\modrinth\mod.rs:17:4
+   |
+17 | fn deserialise_optional_url<'d...
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: `carbon_platforms` (lib) generated 1 
+warning
+    Checking iridium v0.1.0 (C:\Users\minec\Documen
+ts\GitHub\GDLauncher-Carbon\crates\iridium)
+error[E0425]: cannot find function `startup_check` 
+in crate `iridium`
+  --> crates\carbon_app\src\main.rs:97:22
+   |
+97 |             iridium::startup_check();
+   |                      ^^^^^^^^^^^^^ not found 
+in `iridium`
+
+For more information about this error, try `rustc 
+--explain E0425`.
+error: could not compile `carbon_app` (bin 
+"carbon_app") due to 1 previous error

@@ -40,7 +40,7 @@ impl DeviceCode {
         let response = client
             .get("https://login.microsoftonline.com/consumers/oauth2/v2.0/devicecode")
             .query(&[
-                ("client_id", env!("MS_AUTH_CLIENT_ID")),
+                ("client_id", option_env!("MS_AUTH_CLIENT_ID").unwrap_or("00000000-0000-0000-0000-000000000000")),
                 (
                     "scope",
                     "XboxLive.signin XboxLive.offline_access profile openid email",
@@ -79,7 +79,7 @@ impl DeviceCode {
             let response = bare_client
                 .post("https://login.microsoftonline.com/consumers/oauth2/v2.0/token")
                 .form(&[
-                    ("client_id", env!("MS_AUTH_CLIENT_ID")),
+                    ("client_id", option_env!("MS_AUTH_CLIENT_ID").unwrap_or("00000000-0000-0000-0000-000000000000")),
                     (
                         "scope",
                         "XboxLive.signin XboxLive.offline_access profile openid email",
@@ -190,7 +190,7 @@ impl MsAuth {
             .post("https://login.microsoftonline.com/consumers/oauth2/v2.0/token")
             //.post("https://login.live.com/oauth20_token.srf")
             .form(&[
-                ("client_id", env!("MS_AUTH_CLIENT_ID")),
+                ("client_id", option_env!("MS_AUTH_CLIENT_ID").unwrap_or("00000000-0000-0000-0000-000000000000")),
                 ("refresh_token", refresh_token),
                 ("grant_type", "refresh_token"),
                 (

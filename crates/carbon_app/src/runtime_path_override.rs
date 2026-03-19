@@ -5,7 +5,10 @@ pub(crate) async fn get_runtime_path_override() -> PathBuf {
     let mut path: Option<PathBuf> = None;
     #[cfg(debug_assertions)]
     {
-        path = Some(PathBuf::from(env!("RUNTIME_PATH")));
+        path = Some(PathBuf::from(match option_env!("RUNTIME_PATH") {
+            Some(v) => v,
+            None => "./carbon_data",
+        }));
     }
     #[cfg(not(debug_assertions))]
     {

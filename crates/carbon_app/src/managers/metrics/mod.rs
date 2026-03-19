@@ -94,7 +94,7 @@ impl ManagerRef<'_, MetricsManager> {
         let serialized_event = json!(GDLAppEvent {
             id: metrics_user_id,
             domain: "gdl-carbon-app".to_string(),
-            domain_version: env!("APP_VERSION").to_string(),
+            domain_version: option_env!("APP_VERSION").unwrap_or("1.0.0").to_string(),
             screen_resolutions: display_infos,
             cpus_count: self.app.system_info_manager().get_cpus().await as u32,
             ram_mb: self.app.system_info_manager().get_total_ram().await / 1024 / 1024,

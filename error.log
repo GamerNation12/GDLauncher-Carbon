@@ -1,0 +1,291 @@
+﻿cargo : warning: 
+unused variable: `err`
+At line:1 char:1
++ cargo check -p 
+carbon_app 2>&1 | 
+Out-File -FilePath 
+error.log -Encodi ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (warning: unus   
+ ed variable: `err`    
+:String) [], Remot    
+eException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+   --> crates\carbon_rt
+_path\src\lib.rs:319:20
+    |
+319 |         if let 
+Err(err) = &res {
+    |                  
+  ^^^ help: if this is 
+intentional, prefix it 
+with an underscore: 
+`_err`
+    |
+    = note: `#[warn(unu
+sed_variables)]` on by 
+default
+
+warning: 
+`carbon_rt_path` (lib) 
+generated 1 warning
+warning: function `dese
+rialise_optional_url` 
+is never used
+  --> crates\carbon_pla
+tforms\src\modrinth\mod
+.rs:17:4
+   |
+17 | fn deserialise_opt
+ional_url<'d...
+   |    ^^^^^^^^^^^^^^^
+^^^^^^^^^
+   |
+   = note: 
+`#[warn(dead_code)]` 
+on by default
+
+   Compiling 
+carbon_app v0.0.0 (C:\U
+sers\minec\Documents\Gi
+tHub\GDLauncher-Carbon\
+crates\carbon_app)
+warning: 
+`carbon_platforms` 
+(lib) generated 1 
+warning
+error: format argument 
+must be a string 
+literal
+  --> crates\carbon_app
+\src\iridium_client.rs:
+78:13
+   |
+78 |             option
+_env!("USER_AGENT_PREFI
+X").unwrap_or("CarbonAp
+p"),
+   |             ^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
+^^^
+   |
+help: you might be 
+missing a string 
+literal to format with
+   |
+78 |             "{} 
+{}", option_env!("USER_
+AGENT_PREFIX").unwrap_o
+r("CarbonApp"),
+   |             
+++++++++
+
+error: environment 
+variable 
+`MS_AUTH_CLIENT_ID` 
+not defined at compile 
+time
+  --> crates\carbon_app
+\src\managers\account\a
+pi.rs:43:31
+   |
+43 |                 
+("client_id", env!("MS_
+AUTH_CLIENT_ID")),
+   |                   
+            ^^^^^^^^^^^
+^^^^^^^^^^^^^^
+   |
+   = help: use `std::en
+v::var("MS_AUTH_CLIENT_
+ID")` to read the 
+variable at run time
+   = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: environment 
+variable 
+`MS_AUTH_CLIENT_ID` 
+not defined at compile 
+time
+  --> crates\carbon_app
+\src\managers\account\a
+pi.rs:82:35
+   |
+82 |                   
+  ("client_id", env!("M
+S_AUTH_CLIENT_ID")),
+   |                   
+                ^^^^^^^
+^^^^^^^^^^^^^^^^^^
+   |
+   = help: use `std::en
+v::var("MS_AUTH_CLIENT_
+ID")` to read the 
+variable at run time
+   = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: environment 
+variable 
+`MS_AUTH_CLIENT_ID` 
+not defined at compile 
+time
+   --> crates\carbon_ap
+p\src\managers\account\
+api.rs:193:31
+    |
+193 |                 
+("client_id", env!("MS_
+AUTH_CLIENT_ID")),
+    |                  
+             ^^^^^^^^^^
+^^^^^^^^^^^^^^^
+    |
+    = help: use `std::e
+nv::var("MS_AUTH_CLIENT
+_ID")` to read the 
+variable at run time
+    = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: environment 
+variable 
+`MS_AUTH_CLIENT_ID` 
+not defined at compile 
+time
+   --> crates\carbon_ap
+p\src\managers\account\
+enroll.rs:177:47
+    |
+177 |                  
+   .append_pair("client
+_id", env!("MS_AUTH_CLI
+ENT_ID"))
+    |                  
+                       
+      ^^^^^^^^^^^^^^^^^
+^^^^^^^^
+    |
+    = help: use `std::e
+nv::var("MS_AUTH_CLIENT
+_ID")` to read the 
+variable at run time
+    = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: environment 
+variable 
+`MS_AUTH_CLIENT_ID` 
+not defined at compile 
+time
+   --> crates\carbon_ap
+p\src\managers\account\
+enroll.rs:225:39
+    |
+225 |                  
+       ("client_id", en
+v!("MS_AUTH_CLIENT_ID")
+),
+    |                  
+                     ^^
+^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `std::e
+nv::var("MS_AUTH_CLIENT
+_ID")` to read the 
+variable at run time
+    = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: environment 
+variable 
+`META_BASE_URL` not 
+defined at compile time
+  --> crates\carbon_app
+\src\managers\minecraft
+\mod.rs:55:39
+   |
+55 |             
+meta_base_url: Url::par
+se(env!("META_BASE_URL"
+)).unwrap(),
+   |                   
+                    
+^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: use `std::en
+v::var("META_BASE_URL")
+` to read the variable 
+at run time
+   = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: environment 
+variable 
+`RUNTIME_PATH` not 
+defined at compile time
+ --> crates\carbon_app\
+src\runtime_path_overri
+de.rs:8:35
+  |
+8 |         path = Some
+(PathBuf::from(env!("RU
+NTIME_PATH")));
+  |                    
+               
+^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: use `std::env
+::var("RUNTIME_PATH")` 
+to read the variable 
+at run time
+  = note: this error 
+originates in the 
+macro `env` (in 
+Nightly builds, run 
+with -Z 
+macro-backtrace for 
+more info)
+
+error: could not 
+compile `carbon_app` 
+(bin "carbon_app") due 
+to 8 previous errors

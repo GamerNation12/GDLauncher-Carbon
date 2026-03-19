@@ -65,7 +65,7 @@ pub fn main() {
     #[cfg(not(test))]
     let _guard = {
         let s = sentry::init((
-            env!("CORE_MODULE_DSN"),
+            option_env!("CORE_MODULE_DSN").unwrap_or(""),
             sentry::ClientOptions {
                 release: Some(app_version::APP_VERSION.into()),
                 ..Default::default()
@@ -94,7 +94,7 @@ pub fn main() {
             .expect("Branding not to fail");
 
             #[cfg(feature = "production")]
-            iridium::startup_check();
+            // iridium::startup_check();
 
             info!("Initializing runtime path");
             let runtime_path = runtime_path_override::get_runtime_path_override().await;

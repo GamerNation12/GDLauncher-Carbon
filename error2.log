@@ -1,0 +1,98 @@
+﻿cargo : warning: 
+unused variable: `err`
+At line:1 char:1
++ cargo check -p 
+carbon_app 2>&1 | 
+Out-File -FilePath 
+error2.log -Encod ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (warning: unus   
+ ed variable: `err`    
+:String) [], Remot    
+eException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+   --> crates\carbon_rt
+_path\src\lib.rs:319:20
+    |
+319 |         if let 
+Err(err) = &res {
+    |                  
+  ^^^ help: if this is 
+intentional, prefix it 
+with an underscore: 
+`_err`
+    |
+    = note: `#[warn(unu
+sed_variables)]` on by 
+default
+
+warning: 
+`carbon_rt_path` (lib) 
+generated 1 warning
+    Checking 
+carbon_repos v0.1.0 (C:
+\Users\minec\Documents\
+GitHub\GDLauncher-Carbo
+n\crates\carbon_repos)
+warning: function `dese
+rialise_optional_url` 
+is never used
+  --> crates\carbon_pla
+tforms\src\modrinth\mod
+.rs:17:4
+   |
+17 | fn deserialise_opt
+ional_url<'d...
+   |    ^^^^^^^^^^^^^^^
+^^^^^^^^^
+   |
+   = note: 
+`#[warn(dead_code)]` 
+on by default
+
+   Compiling 
+carbon_app v0.0.0 (C:\U
+sers\minec\Documents\Gi
+tHub\GDLauncher-Carbon\
+crates\carbon_app)
+warning: 
+`carbon_platforms` 
+(lib) generated 1 
+warning
+error: format argument 
+must be a string 
+literal
+  --> crates\carbon_app
+\src\iridium_client.rs:
+78:13
+   |
+78 |             option
+_env!("USER_AGENT_PREFI
+X").unwrap_or("CarbonAp
+p"),
+   |             ^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
+^^^
+   |
+help: you might be 
+missing a string 
+literal to format with
+   |
+78 |             "{} 
+{}", option_env!("USER_
+AGENT_PREFIX").unwrap_o
+r("CarbonApp"),
+   |             
+++++++++
+
+error: could not 
+compile `carbon_app` 
+(bin "carbon_app") due 
+to 1 previous error

@@ -52,7 +52,7 @@ pub(crate) struct MinecraftManager {
 impl MinecraftManager {
     pub fn new() -> Self {
         Self {
-            meta_base_url: Url::parse(env!("META_BASE_URL")).unwrap(),
+            meta_base_url: Url::parse(option_env!("META_BASE_URL").unwrap_or("https://packages.gdlauncher.com")).unwrap(),
         }
     }
 }
